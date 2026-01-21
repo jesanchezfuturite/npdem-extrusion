@@ -352,26 +352,25 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="feature-card">
-                        <img src="img/capacidades-img-09.webp" alt="Perfiles Rígidos">
+                        <img src="img/capacidades-img-09.webp" alt="">
                         <div class="card-body">
-                            <h3>Perfiles Rígidos</h3>
+                            <h3></h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card">
-                        <img src="img/capacidades-img-02.webp" alt="Perfiles Flexibles">
+                        <img src="img/capacidades-img-02.webp" alt="">
                         <div class="card-body">
-                            <h3>Perfiles Flexibles</h3>
+                            <h3></h3>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="feature-card">
-                        <img src="img/capacidades-img-10.webp" alt="Coextrusión">
+                        <img src="img/capacidades-img-10.webp" alt="">
                         <div class="card-body">
-                            <h3>Coextrusión</h3>
-                            <p class="text-muted small mt-2">Combinación de materiales</p>
+                            <h3></h3>
                         </div>
                     </div>
                 </div>
@@ -490,7 +489,7 @@
                 <div class="col-lg-8">
                     <div class="contact-form-wrapper">
                         <div class="text-center">
-                            <h2>Inicia tu proyecto hoy</h2>
+                            <h2>Cotiza tu proyecto</h2>
                             <p class="text-muted mb-4">Compártenos tus requerimientos y recibe una cotización rápida.
                             </p>
                         </div>
@@ -505,18 +504,20 @@
                                     <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico" required>
                                     <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-6">
                                     <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
                                     <div class="invalid-feedback">Por favor ingresa un teléfono.</div>
                                 </div>
                                 <div class="col-md-6">
+                                    <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Empresa" required>
+                                    <div class="invalid-feedback">Por favor ingresa el nombre de la empresa.</div>
+                                </div>
+                                <div class="col-md-12">
                                     <input type="file" class="form-control" id="miArchivo" name="miArchivo">
-                                    <div class="form-text mt-0 mb-3 small text-muted">Adjuntar archivo (opcional).</div>
+                                    <div class="form-text mt-0 mb-3 small text-muted">Adjuntar archivo (DWG, STEP, STL, 3D).</div>
                                 </div>
                             </div>
-                            <textarea class="form-control" id="mensaje" rows="4" name="mensaje" placeholder="Cuéntanos sobre tu proyecto / Mensaje" required></textarea>
+                            <textarea class="form-control" id="mensaje" rows="4" name="mensaje" placeholder="Compártenos la información de tu proyecto y nuestro equipo técnico evaluará tus requerimientos para ofrecerte una solución de inyección acorde a tus especificaciones." required></textarea>
                             <div class="invalid-feedback">Por favor escribe un mensaje.</div>
 
                             <div class="d-grid mt-3">
@@ -594,22 +595,17 @@
                 form.classList.add('was-validated');
 
                 if (isValid) {
-                    /* Start Loading State
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = `
-                        <div class="spinner-border spinner-border-sm text-primary" role="status">
-                            <span class="visually-hidden">Enviando...</span>
-                        </div> Enviando...
-                    `;*/ 
                     var nombre = $("input[name='nombre']", this).val();
                     var correo = $("input[name='correo']", this).val();
                     var telefono = $("input[name='telefono']", this).val();
+                    var empresa = $("input[name='empresa']", this).val();
                     var mensaje = $("textarea[name='mensaje']", this).val();
 
                     var data = {};
                     data.nombre = nombre;
                     data.correo = correo;
                     data.telefono = telefono;
+                    data.empresa = empresa;
                     data.mensaje = mensaje;
                     
                     if(base64Completo != "") {
