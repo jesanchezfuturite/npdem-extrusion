@@ -498,28 +498,25 @@
                         <form id="quoteForm" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="name" placeholder="Nombre completo"
-                                        required>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo" required>
                                     <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" id="email" placeholder="Correo electrónico"
-                                        required>
+                                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico" required>
                                     <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="tel" class="form-control" id="phone" placeholder="Teléfono" required>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
                                     <div class="invalid-feedback">Por favor ingresa un teléfono.</div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="file" class="form-control" id="fileAttachment">
+                                    <input type="file" class="form-control" id="miArchivo" name="miArchivo">
                                     <div class="form-text mt-0 mb-3 small text-muted">Adjuntar archivo (opcional).</div>
                                 </div>
                             </div>
-                            <textarea class="form-control" id="message" rows="4"
-                                placeholder="Cuéntanos sobre tu proyecto / Mensaje" required></textarea>
+                            <textarea class="form-control" id="mensaje" rows="4" name="mensaje" placeholder="Cuéntanos sobre tu proyecto / Mensaje" required></textarea>
                             <div class="invalid-feedback">Por favor escribe un mensaje.</div>
 
                             <div class="d-grid mt-3">
@@ -542,9 +539,13 @@
     </footer>
 
     <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
@@ -593,13 +594,59 @@
                 form.classList.add('was-validated');
 
                 if (isValid) {
-                    // Start Loading State
+                    /* Start Loading State
                     submitBtn.disabled = true;
                     submitBtn.innerHTML = `
                         <div class="spinner-border spinner-border-sm text-primary" role="status">
                             <span class="visually-hidden">Enviando...</span>
                         </div> Enviando...
-                    `;
+                    `;*/ 
+                    var nombre = $("input[name='nombre']", this).val();
+                    var correo = $("input[name='correo']", this).val();
+                    var telefono = $("input[name='telefono']", this).val();
+                    var mensaje = $("textarea[name='mensaje']", this).val();
+
+                    var data = {};
+                    data.nombre = nombre;
+                    data.correo = correo;
+                    data.telefono = telefono;
+                    data.mensaje = mensaje;
+
+                    data.archivo_adjunto = base64Completo ? base64Completo : "";
+                    data.utm_id = data_utm.utm_id ? data_utm.utm_id : "";
+                    data.utm_campaign = data_utm.utm_campaign ? data_utm.utm_campaign : "";
+                    data.utm_source = data_utm.utm_source ? data_utm.utm_source : "";
+                    data.utm_medium = data_utm.utm_medium ? data_utm.utm_medium : "";
+                    data.utm_content = data_utm.utm_content ? data_utm.utm_content : "";
+                    data.utm_term = data_utm.utm_term ? data_utm.utm_term : "";
+
+                    data.api_key = "Q2xpZW50ZUlEOjo0MDc=";
+                    data.to = ["ventas@npdem.com", "leads@futurite.net"];
+                    data.origen = "npdem-extrusion";
+
+                    const btn = $('#btnSubmit');
+                    const originalText = btn.text();
+
+                    // Simulación de envío
+                    btn.prop('disabled', true).text('Enviando...');
+
+                    $.ajax({
+                        method: "POST",
+                        url: "https://futurite.ongoing.mx/api/leads/add",
+                        data: data,
+                        error: function (e) {
+                            console.log(e);
+                        },
+                        success: function (result) {
+                            console.log(result);
+                            if (result.success) {
+                                $('#contactForm').each(function () { this.reset(); });
+                                window.open('gracias.html', '_self');
+                            } else {
+                                alert('Ha ocurrido un error al enviar la forma de contacto, intenta más tarde');
+                            }
+                        }
+                    })
 
                     // Simulate Server Request delay
                     setTimeout(() => {
@@ -619,6 +666,39 @@
             });
         });
 
+        /*manejo de UTM*/
+        var data_utm = {};
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // 1. Obtener los parámetros de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            // 2. Lista de UTMs a buscar
+            const utms = ['utm_id', 'utm_campaign', 'utm_source', 'utm_medium', 'utm_content', 'utm_term'];
+            // 3. Asignar cada UTM encontrada a su campo correspondiente
+            utms.forEach(param => {
+                const value = urlParams.get(param);
+                if (value) {
+                    data_utm [param] = value;
+                }
+            });
+            console.log(data_utm);
+        });
+        /*manejo de archivo*/
+        const input = document.getElementById('miArchivo');
+        var base64Completo = "";
+        input.addEventListener('change', (e) => {
+            const archivo_adjunto = e.target.files[0]; // Obtener el primer archivo seleccionado
+            if (!archivo_adjunto) return;
+            const lector = new FileReader();
+            // Evento que se dispara cuando el archivo se termina de leer
+            lector.onload = () => {
+                base64Completo = lector.result; // Esto incluye el prefijo (ej: data:image/png;base64,...)
+                console.log('Base64 completo:', base64Completo);
+            };
+            // Iniciar la lectura del archivo como DataURL (que es formato Base64)
+            lector.readAsDataURL(archivo_adjunto);
+        });
+
+        /*slider*/
         const swiper = new Swiper('.swiper-clientes', {
             slidesPerView: 2,
             spaceBetween: 30,
