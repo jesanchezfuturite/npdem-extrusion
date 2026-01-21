@@ -611,8 +611,13 @@
                     data.correo = correo;
                     data.telefono = telefono;
                     data.mensaje = mensaje;
-
-                    data.archivo_adjunto = base64Completo ? base64Completo : "";
+                    
+                    if(base64Completo != "") {
+                        data.archivo_adjunto = {
+                            "contenido" : base64Completo,
+                            "nombre" : nombreArchivo
+                        } 
+                    }                    
                     data.utm_id = data_utm.utm_id ? data_utm.utm_id : "";
                     data.utm_campaign = data_utm.utm_campaign ? data_utm.utm_campaign : "";
                     data.utm_source = data_utm.utm_source ? data_utm.utm_source : "";
@@ -685,9 +690,13 @@
         /*manejo de archivo*/
         const input = document.getElementById('miArchivo');
         var base64Completo = "";
+        var nombreArchivo = ""; // Variable para almacenar el nombre
         input.addEventListener('change', (e) => {
             const archivo_adjunto = e.target.files[0]; // Obtener el primer archivo seleccionado
             if (!archivo_adjunto) return;
+             // Guardamos el nombre del archivo en la variable
+            nombreArchivo = archivo_adjunto.name;
+            console.log('Nombre del archivo:', nombreArchivo);
             const lector = new FileReader();
             // Evento que se dispara cuando el archivo se termina de leer
             lector.onload = () => {
