@@ -63,6 +63,27 @@
             color: var(--accent-color) !important;
         }
 
+        .bg-light-custom {
+            background-color: var(--bg-light);
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #00362d;
+            /* Darker shade */
+            box-shadow: 0 4px 15px rgba(0, 77, 64, 0.3);
+            transform: translateY(-2px);
+        }
+
         .btn-accent {
             background-color: var(--accent-color);
             color: var(--primary-color);
@@ -260,16 +281,25 @@
             margin-bottom: 30px;
         }
 
+
+
+        /* Contact Form */
         .form-control {
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #ced4da;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            border: 1px solid #dee2e6;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
 
         .form-control:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 0.2rem rgba(0, 77, 64, 0.15);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(29, 233, 182, 0.15);
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary-color);
         }
 
         .form-control.is-invalid {
@@ -497,31 +527,39 @@
                         <form id="quoteForm" novalidate>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre completo" required>
+                                    <label for="nombre" class="form-label">Nombre y Apellido *</label>
+                                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                                     <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Correo electrónico" required>
+                                    <label for="email" class="form-label">Correo electrónico *</label>
+                                    <input type="email" class="form-control" id="correo" name="correo" required>
                                     <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
+                                    <label for="telefono" class="form-label">Número de teléfono *</label>
+                                    <input type="tel" class="form-control" id="telefono" name="telefono" required>
                                     <div class="invalid-feedback">Por favor ingresa un teléfono.</div>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="empresa" name="empresa" placeholder="Empresa" required>
+                                    <label for="empresa" class="form-label">Empresa *</label>
+                                    <input type="text" class="form-control" id="empresa" name="empresa" required>
                                     <div class="invalid-feedback">Por favor ingresa el nombre de la empresa.</div>
                                 </div>
                                 <div class="col-md-12">
+                                    <label for="miArchivo" class="form-label">Adjuntar Archivo (DWG, STEP, STL, 3D) </label>
                                     <input type="file" class="form-control" id="miArchivo" name="miArchivo">
-                                    <div class="form-text mt-0 mb-3 small text-muted">Adjuntar archivo (DWG, STEP, STL, 3D).</div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="mensaje" class="form-label">Mensaje *</label>
+                                    <textarea class="form-control" id="mensaje" rows="4" name="mensaje" placeholder="Compártenos la información de tu proyecto y nuestro equipo técnico evaluará tus requerimientos para ofrecerte una solución acorde a tus especificaciones." required></textarea>
                                 </div>
                             </div>
-                            <textarea class="form-control" id="mensaje" rows="4" name="mensaje" placeholder="Compártenos la información de tu proyecto y nuestro equipo técnico evaluará tus requerimientos para ofrecerte una solución de inyección acorde a tus especificaciones." required></textarea>
+
                             <div class="invalid-feedback">Por favor escribe un mensaje.</div>
 
                             <div class="d-grid mt-3">
-                                <button type="submit" class="btn btn-accent btn-lg" id="submitBtn">
+                                <button type="submit" class="btn btn-primary-custom btn-lg w-100" id="submitBtn">
                                     <span>Enviar Solicitud</span>
                                 </button>
                             </div>
