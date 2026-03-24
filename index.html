@@ -19,17 +19,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'AW-440595185');
     </script>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MV2ZX5C');</script>
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-MV2ZX5C');</script>
     <!-- End Google Tag Manager -->
 
     <style>
@@ -246,17 +249,22 @@
         .swiper-clientes {
             padding: 20px 0 50px;
         }
+
         .swiper-slide {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .client-logo {
-            max-width: 100%;  /* Ajusta según el tamaño de tus logos */
-            filter: grayscale(100%); /* Opcional: logos en gris */
+            max-width: 100%;
+            /* Ajusta según el tamaño de tus logos */
+            filter: grayscale(100%);
+            /* Opcional: logos en gris */
             transition: 0.3s;
-            height: auto; 
+            height: auto;
         }
+
         .client-logo:hover {
             filter: grayscale(0%);
         }
@@ -331,8 +339,8 @@
 
 <body>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MV2ZX5C"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MV2ZX5C" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Navbar -->
@@ -353,7 +361,8 @@
                     <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
                         <a class="btn btn-accent smooth-scroll" href="#contact">Cotizar Ahora</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link smooth-scroll" href="https://npdem.com/" target="_blank">Sitio Web</a></li>
+                    <li class="nav-item"><a class="nav-link smooth-scroll" href="https://npdem.com/"
+                            target="_blank">Sitio Web</a></li>
                 </ul>
             </div>
         </div>
@@ -447,19 +456,22 @@
                 <div class="col-lg-6 mb-4 mb-lg-0">
                     <h2 class="fw-bold mb-4">¿Por qué elegirnos?</h2>
                     <ul class="list-unstyled">
-                        <li class="mb-3 d-flex align-items-center"><span class="text-accent me-3 h4"><img src="img/icono-05.webp" alt="check" width="20px"></span> Asesoría
+                        <li class="mb-3 d-flex align-items-center"><span class="text-accent me-3 h4"><img
+                                    src="img/icono-05.webp" alt="check" width="20px"></span> Asesoría
                             técnica especializada</li>
-                        <li class="mb-3 d-flex align-items-center"><span class="text-accent me-3 h4"><img src="img/icono-05.webp" alt="check" width="20px"></span> Validación
+                        <li class="mb-3 d-flex align-items-center"><span class="text-accent me-3 h4"><img
+                                    src="img/icono-05.webp" alt="check" width="20px"></span> Validación
                             de diseños en 3D</li>
-                        <li class="mb-3 d-flex align-items-center"><span class="text-accent me-3 h4"><img src="img/icono-05.webp" alt="check" width="20px"></span> Capacidad
+                        <li class="mb-3 d-flex align-items-center"><span class="text-accent me-3 h4"><img
+                                    src="img/icono-05.webp" alt="check" width="20px"></span> Capacidad
                             para alto volumen</li>
-                        <li class="mb-3 d-flex align-items-center"><span class="text-accent me-3 h4"><img src="img/icono-05.webp" alt="check" width="20px"></span> Cotización
+                        <li class="mb-3 d-flex align-items-center"><span class="text-accent me-3 h4"><img
+                                    src="img/icono-05.webp" alt="check" width="20px"></span> Cotización
                             en menos de 24 horas</li>
                     </ul>
                 </div>
                 <div class="col-lg-6">
-                    <img src="img/porque-img-01.webp" alt="Ingeniería y Calidad"
-                        class="img-fluid rounded shadow-lg">
+                    <img src="img/porque-img-01.webp" alt="Ingeniería y Calidad" class="img-fluid rounded shadow-lg">
                 </div>
             </div>
         </div>
@@ -483,27 +495,41 @@
             <div class="text-center mb-5">
                 <h4 class="text-muted mb-5 text-uppercase letter-spacing-2">Ellos confían en nosotros</h4>
             </div>
-            
+
             <!-- Swiper Container -->
             <div class="swiper swiper-clientes">
                 <div class="swiper-wrapper">
                     <!-- Logos -->
-                    <div class="swiper-slide"><img src="img/logo-clientes-01.webp" alt="Cliente 1" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-02.webp" alt="Cliente 2" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-03.webp" alt="Cliente 3" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-04.webp" alt="Cliente 4" class="client-logo"></div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-01.webp" alt="Cliente 1" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-02.webp" alt="Cliente 2" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-03.webp" alt="Cliente 3" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-04.webp" alt="Cliente 4" class="client-logo">
+                    </div>
 
-                    <div class="swiper-slide"><img src="img/logo-clientes-05.webp" alt="Cliente 5" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-06.webp" alt="Cliente 6" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-07.webp" alt="Cliente 7" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-08.webp" alt="Cliente 8" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-09.webp" alt="Cliente 9" class="client-logo"></div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-05.webp" alt="Cliente 5" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-06.webp" alt="Cliente 6" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-07.webp" alt="Cliente 7" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-08.webp" alt="Cliente 8" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-09.webp" alt="Cliente 9" class="client-logo">
+                    </div>
 
-                    <div class="swiper-slide"><img src="img/logo-clientes-10.webp" alt="Cliente 10" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-11.webp" alt="Cliente 11" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-12.webp" alt="Cliente 12" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-13.webp" alt="Cliente 13" class="client-logo"></div>
-                    <div class="swiper-slide"><img src="img/logo-clientes-14.webp" alt="Cliente 14" class="client-logo"></div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-10.webp" alt="Cliente 10" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-11.webp" alt="Cliente 11" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-12.webp" alt="Cliente 12" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-13.webp" alt="Cliente 13" class="client-logo">
+                    </div>
+                    <div class="swiper-slide"><img src="img/logo-clientes-14.webp" alt="Cliente 14" class="client-logo">
+                    </div>
                     <!-- Agrega aquí más logos libremente -->
                 </div>
                 <!-- Paginación opcional -->
@@ -520,7 +546,7 @@
                     <div class="contact-form-wrapper">
                         <div class="text-center">
                             <h2>Cotiza tu proyecto</h2>
-                            <p class="text-muted mb-4">Compártenos tus requerimientos y recibe una cotización rápida.
+                            <p class="text-muted mb-4">Compártenos tus requerimientos y recibe una cotización.
                             </p>
                         </div>
 
@@ -547,12 +573,15 @@
                                     <div class="invalid-feedback">Por favor ingresa el nombre de la empresa.</div>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="miArchivo" class="form-label">Adjuntar Archivo (DWG, STEP, STL, 3D) </label>
+                                    <label for="miArchivo" class="form-label">Adjuntar Archivo (DWG, STEP, STL, 3D)
+                                    </label>
                                     <input type="file" class="form-control" id="miArchivo" name="miArchivo">
                                 </div>
                                 <div class="col-12">
                                     <label for="mensaje" class="form-label">Mensaje *</label>
-                                    <textarea class="form-control" id="mensaje" rows="4" name="mensaje" placeholder="Compártenos la información de tu proyecto y nuestro equipo técnico evaluará tus requerimientos para ofrecerte una solución acorde a tus especificaciones." required></textarea>
+                                    <textarea class="form-control" id="mensaje" rows="4" name="mensaje"
+                                        placeholder="Compártenos la información de tu proyecto y nuestro equipo técnico evaluará tus requerimientos para ofrecerte una solución acorde a tus especificaciones."
+                                        required></textarea>
                                 </div>
                             </div>
 
@@ -645,13 +674,13 @@
                     data.telefono = telefono;
                     data.empresa = empresa;
                     data.mensaje = mensaje;
-                    
-                    if(base64Completo != "") {
+
+                    if (base64Completo != "") {
                         data.archivo_adjunto = {
-                            "contenido" : base64Completo,
-                            "nombre" : nombreArchivo
-                        } 
-                    }                    
+                            "contenido": base64Completo,
+                            "nombre": nombreArchivo
+                        }
+                    }
                     data.utm_id = data_utm.utm_id ? data_utm.utm_id : "";
                     data.utm_campaign = data_utm.utm_campaign ? data_utm.utm_campaign : "";
                     data.utm_source = data_utm.utm_source ? data_utm.utm_source : "";
@@ -716,7 +745,7 @@
             utms.forEach(param => {
                 const value = urlParams.get(param);
                 if (value) {
-                    data_utm [param] = value;
+                    data_utm[param] = value;
                 }
             });
             console.log(data_utm);
@@ -728,7 +757,7 @@
         input.addEventListener('change', (e) => {
             const archivo_adjunto = e.target.files[0]; // Obtener el primer archivo seleccionado
             if (!archivo_adjunto) return;
-             // Guardamos el nombre del archivo en la variable
+            // Guardamos el nombre del archivo en la variable
             nombreArchivo = archivo_adjunto.name;
             console.log('Nombre del archivo:', nombreArchivo);
             const lector = new FileReader();
