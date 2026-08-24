@@ -304,6 +304,18 @@
             box-shadow: 0 0 0 4px rgba(29, 233, 182, 0.15);
         }
 
+        .form-select {
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            border: 1px solid #dee2e6;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(29, 233, 182, 0.15);
+        }
+
         .form-label {
             font-weight: 600;
             font-size: 0.9rem;
@@ -568,7 +580,7 @@
                         </div>
 
                         <form id="quoteForm" novalidate>
-                            <div class="row">
+                            <div class="row gy-3">
                                 <div class="col-md-6">
                                     <label for="nombre" class="form-label">Nombre y Apellido *</label>
                                     <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -588,6 +600,24 @@
                                     <label for="empresa" class="form-label">Empresa *</label>
                                     <input type="text" class="form-control" id="empresa" name="empresa" required>
                                     <div class="invalid-feedback">Por favor ingresa el nombre de la empresa.</div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="herramental" class="form-label">¿Cuentas con herramental para el proyecto? *</label>
+                                    <select class="form-select" id="herramental" name="herramental" required>
+                                        <option value="" selected disabled>Selecciona una opción</option>
+                                        <option value="Sí">Sí</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="invalid-feedback">Por favor selecciona una opción.</div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="planos" class="form-label">¿Cuentas con planos o dibujos técnicos del proyecto? *</label>
+                                    <select class="form-select" id="planos" name="planos" required>
+                                        <option value="" selected disabled>Selecciona una opción</option>
+                                        <option value="Sí">Sí</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                    <div class="invalid-feedback">Por favor selecciona una opción.</div>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="miArchivo" class="form-label">Adjuntar Archivo (DWG, STEP, STL, 3D, Imagen: PNG, JPG)
@@ -683,6 +713,8 @@
                     var correo = $("input[name='correo']", this).val();
                     var telefono = $("input[name='telefono']", this).val();
                     var empresa = $("input[name='empresa']", this).val();
+                    var herramental = $("select[name='herramental']", this).val();
+                    var planos = $("select[name='planos']", this).val();
                     var mensaje = $("textarea[name='mensaje']", this).val();
 
                     var data = {};
@@ -690,6 +722,8 @@
                     data.correo = correo;
                     data.telefono = telefono;
                     data.empresa = empresa;
+                    data.herramental = herramental;
+                    data.planos = planos;
                     data.mensaje = mensaje;
 
                     if (base64Completo != "") {
